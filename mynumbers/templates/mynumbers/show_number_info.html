@@ -1,0 +1,20 @@
+{% extends 'mynumbers/index.html' %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<a href="{% url 'index' %}">Back to main</a>
+
+<p>Number: {{ numinf.number.number }}</p>
+<p>Square root: {{ numinf.sqrt }}</p>
+<p>Divisors: {{ numinf.divisors }}</p>
+<p>
+    {% if numinf.is_even %}
+    Even
+    {% else %}
+    Odd
+    {% endif %}
+</p>
+{% endblock %}
+
+{% block footer %}{% endblock %}

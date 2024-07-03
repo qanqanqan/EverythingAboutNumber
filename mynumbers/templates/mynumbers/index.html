@@ -1,1 +1,23 @@
-hello world
+{% extends 'base.html' %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<h1>Everything about a number</h1>
+<form method="post" action="{% url 'take-number' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Go</button>
+</form>
+
+<h2 class="nums-title">Available numbers</h2>
+<div class="nums">
+    {% for num in nums %}
+    <a href="{% url 'show-number-info' num %}" class="num">{{ num }}</a>
+    {% empty %}
+    Create your first num!
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
